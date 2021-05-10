@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transportation extends Model
 {
-    use HasFactory;
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class);
+    }
 }

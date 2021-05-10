@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\AddTransportationController::class, 'ViewTransportation']);
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/info_transportation', [\App\Http\Controllers\ViewTransportationsController::class, 'view']);
+Route::get('/view_organization', [\App\Http\Controllers\ViewOrganizationController::class, 'index']);
+Route::get('/add_transportation', [\App\Http\Controllers\AddTransportationController::class, 'ViewTransportation'])->name('transportations.index');
 Route::post('/add_transportation', [\App\Http\Controllers\OrderController::class, 'AddTransportation'])->name('orders.store');
-//Route::get('/', [\App\Http\Controllers\AddTransportationController::class, 'AddTransportation']);

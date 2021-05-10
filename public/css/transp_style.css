@@ -1,0 +1,22 @@
+.box_transportations{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+}
+.block_transportation{
+    display: flex;
+    width: 860px;
+    border: 1px solid black;
+    height: 100px;
+    align-items: center;
+}
+.block_transportation div{
+    margin-left: auto;
+    margin-right: auto;
+}

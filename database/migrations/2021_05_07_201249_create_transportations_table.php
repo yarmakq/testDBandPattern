@@ -18,7 +18,10 @@ class CreateTransportationsTable extends Migration
             $table->dateTime('date_of_creation'); // дата создания заявки (внутр)
             $table->string('track_number')->nullable(); // РПО письма (трек-номер)
 
-            $table->integer('organization_id'); // номер организации
+            $table->foreignId('organization_id')
+                ->references('id')
+                ->on('organizations')
+                ->onDelete('cascade'); // номер организации
             $table->text('num_contract_application'); // номер договор заявки
             $table->dateTime('date_creation'); // дата заключения договор-заявки
 
@@ -44,6 +47,8 @@ class CreateTransportationsTable extends Migration
             $table->date('date_departure'); // Дата убытия
             $table->date('date_arrival'); // дата прибытия
             $table->double('fuel_consumption')->nullable(); // расход топлива, вычисляется по формуле (км*ср.расход*ст.топлива)/100
+
+            $table->boolean('state_pay')->nullable(); // оплачено\не оплачено
             $table->timestamps();
         });
     }

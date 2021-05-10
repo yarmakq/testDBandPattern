@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Organization;
 use App\Models\Transportation;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
     public function AddTransportation(Request $request) {
-        //dd($request->all());
+
         $trans= \DB::table('transportations')->insert([
             "date_of_creation" => $request->post('date_of_creation'),
             "track_number" => $request->post('track_number'),
@@ -40,18 +41,14 @@ class OrderController extends Controller
             "date_arrival" => $request->post('date_arrival')
         ]);
 
+        $org = Organization::all();
+
             if ($trans){
                 echo 'good';
             } else {
                 echo 'bad';
             }
-
-        return redirect()->route('orders.store')->with('success', 'Data Added');
-//        Transportation::(
-//            [
-
-
-
-        return view('add_transportation.add_transportation');
+            //
+        return redirect()->route('transportations.index');
     }
 }

@@ -9,6 +9,7 @@
 </head>
 <body>
 
+    <button><a href="/">Back</a></button>
 
     <form action="{{ route('orders.store') }}" method="POST">
         @csrf
@@ -30,12 +31,10 @@
                 <div class="info_client">
                     <div class="info_transportation_client_title">
                         Контрагент:
-                    </div>
-                    <select name="organization_id" id="">
-                        <option value="1">ООО АПК ПРОМАГРО</option>
-                        <option value="2">ООО ПЕГАС</option>
-                        <option value="3">ООО ТРАСТЛАЙН</option>
-                        <option value="4">ООО ДЕТСКИЙ МИР</option>
+                    </div> <select name="organization_id" id="">
+                        @foreach($organizations as $unit)
+                            <option value="{{$unit->id}}">{{$unit->name_organization}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <br>
@@ -45,7 +44,7 @@
                             Номер договор-заявки:
                         </div>
 
-                        <input name="num_contract_application" class="add_info_button" type="text" value="№1">
+                        <input name="num_contract_application" class="add_info_button" type="text" value="1">
                     </div>
                     <div class="info_client">
                         <div class="info_transportation_client_title">
