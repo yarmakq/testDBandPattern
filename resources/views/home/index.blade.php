@@ -8,8 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-    <button><a href="add_transportation">Добавить перевозку</a></button> <br>
-    <button><a href="info_transportation">Показать перевозки</a></button> <br>
-    <button><a href="view_organization">Показать контрагентов</a></button> <br>
+    <button><a href="{{ route('transportations.create') }}">Добавить перевозку</a></button> <br>
+    <button><a href="{{ route('transportations.index') }}">Показать перевозки</a></button> <br>
+    <button><a href="{{ route('organizations.index') }}">Показать контрагентов</a></button> <br>
 </body>
 </html>
