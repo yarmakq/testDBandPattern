@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/styles/transp_style.css">
+    <link rel="stylesheet" href="{{ asset('css/create/transportations/add_transportation.css') }}">
     <title>Document</title>
 </head>
 <body>
@@ -26,7 +26,7 @@
                 {{$transportation->id}}
             </div>
             <div class="id_organization">
-                {{ optional($transportation->organization)->name_organization }}
+                {{ optional($transportation->organization)->name }}
             </div>
             <div class="path">
                 Маршрут:  {{$transportation->start_point}} -  {{$transportation->end_point}}

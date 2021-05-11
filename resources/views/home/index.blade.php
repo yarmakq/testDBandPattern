@@ -11,5 +11,6 @@
     <button><a href="{{ route('transportations.create') }}">Добавить перевозку</a></button> <br>
     <button><a href="{{ route('transportations.index') }}">Показать перевозки</a></button> <br>
     <button><a href="{{ route('organizations.index') }}">Показать контрагентов</a></button> <br>
+    <button><a href="{{ route('organizations.create') }}">Добавить контрагента</a></button> <br>
 </body>
 </html>

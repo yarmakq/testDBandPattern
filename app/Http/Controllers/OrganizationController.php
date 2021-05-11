@@ -26,7 +26,10 @@ class OrganizationController extends Controller
      */
     public function create()
     {
-        //
+        return view('organizations.create',
+        [
+            ['organizations' => Organization::all()]
+        ]);
     }
 
     /**
@@ -37,7 +40,11 @@ class OrganizationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \DB::transaction(function () use ($request) {
+            Organization::create($request->all());
+        });
+
+        return redirect()->route('organizations.index');
     }
 
     /**

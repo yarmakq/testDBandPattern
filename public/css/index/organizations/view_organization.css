@@ -1,0 +1,25 @@
+.box_organizations{
+    width: 100%;
+    border: 1px solid black;
+}
+.box_organizations table{
+    border: 1px solid black;
+    max-width: 1224px;
+    max-width: 940px;
+    width: 100%;
+    margin: 5px auto;
+}
+
+.box_organizations table{
+    position: relative;
+    display: block;
+    margin-bottom: .25rem;
+    padding: .325rem .825rem .325rem 1.325rem;
+
+}
+.box_organizations table th{
+    background-color: lightblue;
+}
+.box_organizations table td{
+    background-color: lightblue;
+}

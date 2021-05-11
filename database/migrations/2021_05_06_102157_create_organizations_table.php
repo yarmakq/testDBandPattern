@@ -14,16 +14,15 @@ class CreateOrganizationsTable extends Migration
     public function up()
     {
         Schema::create('organizations', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('inn')->nullable();
-            $table->string('kpp')->nullable();
+            $table->id('id');
+            $table->string('name')->unique();
+            $table->string('inn')->nullable()->unique();;
+            $table->string('kpp')->nullable()->unique();;
             $table->string('legal_address')->nullable();
             $table->string('mailing_address');
-            $table->string('number_ati')->nullable();
+            $table->string('number_ati')->nullable()->unique();;
             $table->string('checking_account')->nullable();
             $table->string('correspondent_account')->nullable();
-            $table->string('num_ati')->nullable(); //
             $table->timestamps();
         });
     }

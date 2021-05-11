@@ -20,7 +20,7 @@ class CreateTransportationsTable extends Migration
             $table->string('num_contract_application'); // номер договор заявки
             $table->date('date_creation'); // дата заключения договор-заявки
 
-            $table->foreignId('manager_id')->nullable();;
+            $table->foreignId('manager_id')->nullable();; // менеджер
             $table->foreignId('driver_id')->nullable();; // водитель
             $table->foreignId('truck_id')->nullable();; // автомобиль
             $table->foreignId('organization_id')->nullable();; // организация
@@ -42,31 +42,26 @@ class CreateTransportationsTable extends Migration
                 ->references('id')
                 ->on('organizations')
                 ->onDelete('cascade'); // номер организации
+            $table->foreign('truck_id')
+                ->references('id')
+                ->on('trucks')
+                ->onDelete('cascade');
+            $table->foreign('manager_id')
+                ->references('id')
+                ->on('workers')
+                ->onDelete('cascade');
+            $table->foreign('driver_id')
+                ->references('id')
+                ->on('workers')
+                ->onDelete('cascade');
+            $table->foreign('cargo_id')
+                ->references('id')
+                ->on('cargos')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });
-
-        Schema::create('cargos',function (Blueprint $table) {
-            $table->id('id');
-            $table->string('character')->nullable() ; // Характер груза
-            $table->string('weight')->nullable(); // масса
-            $table->string('volume')->nullable(); // объем
-        });
-
-        Schema::create('workers', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('name')->nullable(); // менеджер с кем заключалась заявка
-            $table->string('phone')->nullable(); //
-            $table->string('email')->nullable(); //
-            $table->foreignId('organization_id');
-
-            $table->foreign('organization_id')
-                ->references('id')
-                ->on('organizations')
-                ->onDelete('cascade');
-        });
-
-    }
+            }
 
     /**
      * Reverse the migrations.

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ asset('css/add_transportation.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/create/transportations/add_transportation.css') }}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Добавить заявку</title>
