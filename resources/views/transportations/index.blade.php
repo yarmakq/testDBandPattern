@@ -13,7 +13,7 @@
 <body>
 
 <div class="layout-header">
-    <div class="layout-header-title"><a href="{{ 'transportations/index.blade' }}">ATLANTIKA DEMO</a></div>
+    <div class="layout-header-title">ATLANTIKA DEMO</div>
 </div>
 {{--main--}}
 
@@ -100,7 +100,7 @@
                 Ставка с НДС
             </div>
             <div class="box_transportations_title_state">
-                Статус
+                Ставка с НДС
             </div>
             <div class="box_transportations_title_payment">
                 Оплата
@@ -124,12 +124,11 @@
                     Доставлено
                 </div>
                 <div class="box_transportations_title_payment">
-                @if($transportation->payment_id = null or $transportation->payment_id = 0)
-                    Не оплачено
-                @else
-                    Оплачено
-                @endif
-{{--{{{$transportation->payment_id }}--}}
+            @if($transportation->payment_id = null or $transportation->payment_id = 0)
+                Не оплачено
+            @else
+                Оплачено
+            @endif
                 </div>
             </div>
         @endforeach

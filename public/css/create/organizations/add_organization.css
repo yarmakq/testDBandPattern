@@ -113,3 +113,48 @@ select{
     margin: auto;
     text-align: center;
 }
+.box-organization-tittle{
+    display: inline-flex;
+}
+.box-organizations-info{
+    margin: 0.5px 5px 0.5px 5px;
+    border: 1px solid lightskyblue;
+    width: 99%;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    height: 50px;
+}
+
+.box-organizations-name{
+    text-align: center;
+    width: 150px;
+}
+.box-organizations-inn{
+    text-align: center;
+    width: 150px;
+}
+.box-organizations-kpp{
+    text-align: center;
+    width: 150px;
+}
+.box-organizations-number_ati{
+    text-align: center;
+    width: 75px;
+}
+.box-organizations-checking_account{
+    text-align: center;
+    width: 150px;
+}.box-organizations-correspondent_account{
+    text-align: center;
+    width: 150px;
+}
+.box-organizations-addres{
+    text-align: center;
+    width: 480px;
+}
+.box-organizations-address{
+    text-align: left;
+    padding-left: 5px;
+    width: 480px;
+ }
