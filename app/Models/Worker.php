@@ -13,5 +13,6 @@ class Worker extends Model
     'email',
     'position_id',
     'organization_id',
-];
+    ];
+
 }

@@ -1,5 +1,5 @@
 form{
-    width: 590px;
+    width: 100%;
     margin: auto;
 }
 .block_info_transportation{
@@ -32,11 +32,10 @@ form{
 }
 
 .info_client{
-    display: inline-flex;
     align-items: center;
     width: 100%;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 .info_transportation_client_title{
@@ -58,7 +57,7 @@ form{
     width: 50%;
 }
 select{
-    width: 350px;
+    width: 95%;
     height: 40px;
     margin: 4px 0;
     padding-left: 25px;
@@ -74,6 +73,7 @@ select{
 }
 .add_info_transportation{
     margin-top: 20px;
+    width: 100%;
  }
 
 .add_info_transportation_button{
@@ -89,7 +89,7 @@ select{
     border-radius: 8px;
 }
 .add_info_button{
-    width: 350px;
+    width: 95%;
     height: 40px;
     margin: 4px 0;
     padding-left: 25px;
@@ -106,7 +106,7 @@ select{
 
 .add_info_transportation{
     display: inline-flex;
-    width: 590px;
+    width: 100%;
 }
 
 .add_info_transportation div{

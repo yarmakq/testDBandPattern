@@ -13,9 +13,9 @@ class Organization extends Model
         "kpp",
         "legal_address" ,
         "mailing_address",
-        "number_ati",
         "checking_account",
         "correspondent_account",
+        "number_ati"
     ];
 
     public function transportations()

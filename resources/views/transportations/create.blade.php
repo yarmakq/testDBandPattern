@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ asset('/css/create/transportations/add_transportation.css') }}">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="{{ asset('css/select2.min.css') }}path/to/" rel="stylesheet" />
+    <script src="{{ asset('js/select2.min.js') }}"></script>
     <title>Добавить заявку</title>
 </head>
 <body>
@@ -31,9 +31,9 @@
                 <div class="info_client">
                     <div class="info_transportation_client_title">
                         Контрагент:
-                    </div> <select name="organization_id" id="">
+                    </div> <select class="js-example-basic-single" name="organization_id" id="">
                         @foreach($organizations as $unit)
-                            <option value="{{$unit->id}}">{{$unit->name_organization}}</option>
+                            <option value="{{$unit->id}}">{{$unit->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -61,28 +61,6 @@
                         <input name="name_manager" class="add_info_button" type="text" value="Оксана">
                     </div>
 
-                    <div class="info_client">
-                        <div class="info_transportation_client_title">
-                            Тел.:
-                        </div>
-
-                        <input name="phone_manager" class="add_info_button" type="text" value="89993072583">
-                    </div>
-
-                    <div class="info_client">
-                        <div class="info_transportation_client_title">
-                            Почта.:
-                        </div>
-
-                        <input name="email_manager" class="add_info_button"type="text" value="oksana.trk@list.ru">
-                    </div>
-                    <div class="info_client">
-                        <div class="info_transportation_client_title">
-                            ATI:
-                        </div>
-
-                        <input name="num_ati" class="add_info_button" type="text" value="308023">
-                    </div>
                 </div>
 
                 <div class="info_client">
@@ -91,10 +69,9 @@
                     </div>
 
                     <select name="truck" id="">
-                        <option value="1">Газон Некст о342ур31</option>
-                        <option value="2">Газон Некст о361ур31</option>
-                        <option value="3">Газон Некст о377ур31</option>
-                        <option value="4">Renault Premium о097ур31</option>
+                        @foreach($trucks as $unit)
+                            <option value="{{$unit->id}}">{{$unit->name}}</option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -104,8 +81,9 @@
                     </div>
 
                     <select name="drive" id="">
-                        <option value="1">Жданов А.А.</option>
-                        <option value="2">Савченко Е.Н.</option>
+                        @foreach($workers as $unit)
+                            <option value="{{$unit->id}}">{{$unit->name}}</option>
+                        @endforeach
                     </select>
                 </div>
 

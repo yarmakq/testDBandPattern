@@ -24,7 +24,7 @@ class Transportation extends Model
     ];
 
 
-public function organization()
+    public function organization()
     {
         return $this->belongsTo(Organization::class);
     }

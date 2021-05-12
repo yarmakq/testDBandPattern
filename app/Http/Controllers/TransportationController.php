@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Organization;
 use App\Models\Transportation;
+use App\Models\Truck;
+use App\Models\Worker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,20 +14,21 @@ class TransportationController extends Controller
     public function index()
     {
         $transportations = Transportation::with('organization')->get();
-
         $rate_nds = $transportations->sum('rate_nds');
 
         return view('transportations.index', [
             'transportations' => $transportations,
-            'rate_nds' => $rate_nds
+            'rate_nds' => $rate_nds,
         ]);
     }
 
     public function create()
     {
-        return view('transportations.create',
-            ['organizations' => Organization::all()]
-        );
+        return view('transportations.create',[
+            'organizations' => Organization::all(),
+            'trucks' => Truck::all(),
+            'workers' => Worker::where('position_id', '1')->get()
+        ]);
     }
 
     public function store(Request $request)

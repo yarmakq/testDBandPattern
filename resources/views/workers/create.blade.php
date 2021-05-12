@@ -1,16 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ asset('/css/create/organizations/add_organization.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/home/home.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/create/transportations/select_transportations.css') }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{{ asset('/css/create/organizations/add_organization.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/home/home.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/create/transportations/select_transportations.css') }}">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Добавить заявку</title>
-</head>
-<body>
-
+        <title>Document</title>
+    </head>
+    <body>
     {{--header--}}
     <div class="layout-header">
         <div class="layout-header-title">ATLANTIKA DEMO</div>
@@ -86,65 +87,52 @@
         </div>
 
         <div class="layout-main-content">
-            <form action="{{ route('organizations.store') }}" method="POST">
+            <form action="{{ route('workers.store') }}" method="POST">
                 @csrf
 
                 <div class="info_client">
                     <div class="info_transportation_client_title">
-                        Наименование:
-                        <br>
+                        Имя:
                     </div>
 
-                    <input name="name" class="add_info_button"type="text" value="" required>
+                    <input name="name" class="add_info_button"type="text" value="">
                 </div>
                 <div class="info_client">
                     <div class="info_transportation_client_title">
-                        Юр. адрес:
+                        Телефон:
                     </div>
-                    <br>
-                    <input name="legal_address" class="add_info_button"type="text" value="" required>
+
+                    <input name="phone" class="add_info_button"type="text" value="">
                 </div>
                 <div class="info_client">
                     <div class="info_transportation_client_title">
-                        Почтовый адрес:
+                        Email:
                     </div>
 
-                    <input name="mailing_address" class="add_info_button"type="text" value="" required>
+                    <input name="email" class="add_info_button"type="email" value="">
                 </div>
                 <div class="info_client">
                     <div class="info_transportation_client_title">
-                        ИНН:
+                        Должность:
                     </div>
 
-                    <input name="inn" class="add_info_button"type="text" value="" required>
+                    <select name="position_id" id="">
+                        @foreach($positions as $position)
+                            <option value="{{ $position->id }}"> {{ $position->position }} </option>
+                        @endforeach
+
+                    </select>
                 </div>
                 <div class="info_client">
                     <div class="info_transportation_client_title">
-                        КПП:
+                        Организация:
                     </div>
 
-                    <input name="kpp" class="add_info_button"type="text" value="" required>
-                </div>
-                <div class="info_client">
-                    <div class="info_transportation_client_title">
-                        р/с:
-                    </div>
-
-                    <input name="checking_account" class="add_info_button"type="text" value="" required>
-                </div>
-                <div class="info_client">
-                    <div class="info_transportation_client_title">
-                        к/с:
-                    </div>
-
-                    <input name="correspondent_account" class="add_info_button"type="text" value="" required>
-                </div>
-                <div class="info_client">
-                    <div class="info_transportation_client_title">
-                        АТИ:
-                    </div>
-
-                    <input name="number_ati" class="add_info_button"type="text" value="" required>
+                    <select name="organization_id" id="">
+                        @foreach($organizations as $organization)
+                            <option value="{{ $organization->id }}"> {{ $organization->name }} </option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="add_info_transportation">
                     <div>
@@ -155,10 +143,9 @@
         </div>
     </div>
 
-    {{--footer--}}
-    <div class="layout-footer">
+        {{--footer--}}
+        <div class="layout-footer">
 
-    </div>
-</body>
-<script src="{{ asset('js/calculate.js') }}"></script>
+        </div>
+    </body>
 </html>

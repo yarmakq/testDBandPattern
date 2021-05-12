@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Truck;
 use Illuminate\Http\Request;
 
 class TruckController extends Controller
@@ -13,7 +14,11 @@ class TruckController extends Controller
      */
     public function index()
     {
-        //
+        $trucks = Truck::all();
+
+        return view('trucks.index', [
+            'trucks'=>$trucks
+        ]);
     }
 
     /**
@@ -34,7 +39,11 @@ class TruckController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::transaction(function () use ($request) {
+            Truck::create($request->all());
+        });
+
+        return redirect()->route('trucks.index');
     }
 
     /**
@@ -43,9 +52,9 @@ class TruckController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Truck $truck)
     {
-        //
+        return view('trucks.show', ['truck' => $truck]);
     }
 
     /**

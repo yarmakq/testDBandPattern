@@ -10,4 +10,9 @@ class Truck extends Model
     protected $fillable = [
       'name'
     ];
+
+    public function transportations()
+    {
+        return $this->hasMany(Transportation::class);
+    }
 }

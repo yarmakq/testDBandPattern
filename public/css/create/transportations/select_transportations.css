@@ -1,0 +1,38 @@
+.box_transportations{
+     width: 100%;
+}
+.block_transportation{
+    margin: 0.5px 5px 0.5px 5px;
+    border: 1px solid lightskyblue;
+    width: 99%;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    height: 50px;
+}
+.box_transportations_title{
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.box_transportations_title_id{
+    width: 50px;
+}
+.box_transportations_title_org{
+    width: 250px;
+}
+.box_transportations_title_path{
+    width: 450px;
+}
+.box_transportations_title_price{
+    width: 150px;
+}
+.box_transportations_title_state{
+    width: 150px;
+}
+.box_transportations_title_payment{
+    width: 250px;
+}

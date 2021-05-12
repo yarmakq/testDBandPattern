@@ -1,5 +1,8 @@
   document.getElementById('rate_nds').onchange = CalculateCostPerAndRateNoNDS;
 
+    $(document).ready(function() {
+      $('.js-example-basic-single').select2();
+    });
     function CalculateCostPerAndRateNoNDS(){
 
     var costPerKilometer = document.getElementById('interval');

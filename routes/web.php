@@ -20,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::resource('transportations', TransportationController::class);
 Route::resource('organizations', OrganizationController::class);
+Route::resource('trucks', \App\Http\Controllers\TruckController::class);
+Route::resource('workers', \App\Http\Controllers\WorkerController::class);

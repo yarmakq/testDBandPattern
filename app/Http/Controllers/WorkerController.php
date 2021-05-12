@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Organization;
+use App\Models\Position;
+use App\Models\Worker;
 use Illuminate\Http\Request;
 
 class WorkerController extends Controller
@@ -13,7 +16,9 @@ class WorkerController extends Controller
      */
     public function index()
     {
-        //
+        return view('workers.index', [
+            'workers'=> Worker::all(),
+        ]);
     }
 
     /**
@@ -23,7 +28,11 @@ class WorkerController extends Controller
      */
     public function create()
     {
-        //
+        return view('workers.create', [
+            'organizations' => Organization::all(),
+              'positions'=>Position::all()
+            ]
+        );
     }
 
     /**
@@ -34,7 +43,11 @@ class WorkerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \DB::transaction(function () use ($request) {
+            Worker::create($request->all());
+        });
+
+        return redirect()->route('workers.index');
     }
 
     /**
@@ -54,9 +67,9 @@ class WorkerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Worker $worker)
     {
-        //
+        return view('workers.show', ['workers' => $worker]);
     }
 
     /**
