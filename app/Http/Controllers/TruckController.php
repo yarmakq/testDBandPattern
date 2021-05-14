@@ -28,7 +28,7 @@ class TruckController extends Controller
      */
     public function create()
     {
-        //
+        return view('trucks.create');
     }
 
     /**
@@ -39,7 +39,7 @@ class TruckController extends Controller
      */
     public function store(Request $request)
     {
-        DB::transaction(function () use ($request) {
+        \DB::transaction(function () use ($request) {
             Truck::create($request->all());
         });
 

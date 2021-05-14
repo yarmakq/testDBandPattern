@@ -14,5 +14,4 @@ class Worker extends Model
     'position_id',
     'organization_id',
     ];
-
 }

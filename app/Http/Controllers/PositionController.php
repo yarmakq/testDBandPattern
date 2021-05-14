@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Position;
 use Illuminate\Http\Request;
 
 class PositionController extends Controller
@@ -13,7 +14,10 @@ class PositionController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('positions.index',[
+            'positions'=>Position::all()
+        ]);
     }
 
     /**
@@ -23,7 +27,7 @@ class PositionController extends Controller
      */
     public function create()
     {
-        //
+        return view('positions.create');
     }
 
     /**
@@ -34,7 +38,11 @@ class PositionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \DB::transaction(function () use ($request) {
+            Position::create($request->all());
+        });
+
+        return redirect()->route('positions.index');
     }
 
     /**

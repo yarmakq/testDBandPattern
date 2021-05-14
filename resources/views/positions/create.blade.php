@@ -1,20 +1,19 @@
 @extends('home.index')
 
-@section('tittle', 'Добавить')
+@section('tittle', 'Добавить должность')
 
 @section('content')
 
     <div class="layout-main-content">
-        <form action="{{ route('trucks.store') }}" method="POST">
+        <form action="{{ route('positions.store') }}" method="POST">
             @csrf
 
             <div class="info_client">
                 <div class="info_transportation_client_title">
-                    Наименование:
+                    Должность:
                 </div>
 
-                <input name="name" class="add_info_button"type="text" value="">
-            </div>
+                <input name="position" class="add_info_button"type="text" value="">
 
             <div class="add_info_transportation">
                 <div>
@@ -24,6 +23,5 @@
         </form>
     </div>
     </div>
-
 
 @endsection

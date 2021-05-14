@@ -8,7 +8,9 @@
     display: inline-flex;
     align-items: center;
     text-align: center;
-    height: 50px;
+    min-height: 50px;
+    max-height: 100px;
+    height: auto;
 }
 .box_transportations_title{
     display: inline-flex;

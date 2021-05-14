@@ -22,3 +22,4 @@ Route::resource('transportations', TransportationController::class);
 Route::resource('organizations', OrganizationController::class);
 Route::resource('trucks', \App\Http\Controllers\TruckController::class);
 Route::resource('workers', \App\Http\Controllers\WorkerController::class);
+Route::resource('positions', \App\Http\Controllers\PositionController::class);

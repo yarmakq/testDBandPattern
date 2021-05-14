@@ -9,10 +9,15 @@ class Transportation extends Model
 {
     protected $fillable = [
         "track_number",
-
-        "organization_id" ,
         "num_contract_application",
         "date_creation" ,
+
+        "manager_id",
+        "driver_id",
+        "truck_id",
+        "organization_id",
+        "cargo_id",
+
         "start_point",
         "end_point",
         "interval",
@@ -21,6 +26,8 @@ class Transportation extends Model
         "cost_per_kilometer",
         "date_departure",
         "date_arrival",
+        "fuel_consumption",
+        "payment_id"
     ];
 
 

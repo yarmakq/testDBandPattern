@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Organization;
+use App\Models\Position;
 use App\Models\Transportation;
 use App\Models\Truck;
 use App\Models\Worker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use SebastianBergmann\CodeCoverage\Driver\Driver;
 
 class TransportationController extends Controller
 {
@@ -24,10 +26,12 @@ class TransportationController extends Controller
 
     public function create()
     {
+        $position = Position::where('position', 'Водитель')->first();
+
         return view('transportations.create',[
             'organizations' => Organization::all(),
             'trucks' => Truck::all(),
-            'workers' => Worker::where('position_id', '1')->get()
+            'workers' => Worker::where('position_id', $position->id)->get()
         ]);
     }
 
@@ -42,7 +46,18 @@ class TransportationController extends Controller
 
     public function show(Transportation $transportation)
     {
-        return view('transportations.show', ['transportations' => $transportation]);
+        $item = Transportation::where('id', $transportation->id)->first();
+        $driver = Worker::where('id', $transportation->driver_id)->first();
+        $truck = Truck::where('id', $transportation->truck_id)->first();
+        $organization = Organization::where('id', $transportation->organization_id)->first();
+        //dd($truck);
+       // dd($item);
+        return view('transportations.show', [
+            'item' => $item,
+            'driver' => $driver,
+            'truck' => $truck,
+            'organization' => $organization,
+        ]);
     }
 
     public function edit(Transportation $transportation)
